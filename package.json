@@ -1,0 +1,27 @@
+{
+  "name": "api-rapidbasket",
+  "version": "1.0.0",
+  "description": "Backend for Food Ordering App(Rapid Basket)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthbhatt268/api-rapidBasket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthbhatt268/api-rapidBasket/issues"
+  },
+  "homepage": "https://github.com/parthbhatt268/api-rapidBasket#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  }
+}
