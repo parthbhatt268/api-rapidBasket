@@ -1,7 +1,4 @@
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
-const User = require("../Model/userModel");
-const catchAsync = require("../utils/catchAsync");
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -33,30 +30,6 @@ const createsendToken = (user, statusCode, res) => {
   });
 };
 
-exports.Register = async (req, res, next) => {
-  console.log(req.body);
-  if (
-    req.body.name &&
-    req.body.email &&
-    req.body.email &&
-    req.body.password &&
-    req.body.passwordConfirm
-  ) {
-    const newUser = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      passwordConfirm: req.body.passwordConfirm,
-    });
 
-    var token = signToken(newUser._id);
-    // Logging the user into the application using jsonwebtoken right after signing up
-    token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN,
-    });
 
-    createsendToken(newUser, 201, res);
-  } else {
-    res.status(400).send("Please enter all the details!!");
-  }
-};
+module.exports = {signToken,createsendToken}
