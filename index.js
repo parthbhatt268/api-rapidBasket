@@ -7,6 +7,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
+const mongoose = require("mongoose")
+const dotnev = require("dotenv");
+const app  = require("./app")
 
 
 dotnev.config({ path: "./.env" });
