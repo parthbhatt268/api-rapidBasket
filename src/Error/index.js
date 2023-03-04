@@ -2,6 +2,8 @@ const {
     StatusCodes,
     getReasonPhrase
   } = require('http-status-codes');
+
+  
     class AppError extends Error {
      httpCode;
      httpMessage;
