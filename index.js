@@ -9,7 +9,7 @@ app.use(express.urlencoded())
 app.use(cors())
 const mongoose = require("mongoose")
 const dotnev = require("dotenv");
-const app  = require("./app")
+const app = require("./app")
 
 
 dotnev.config({ path: "./.env" });
@@ -35,9 +35,9 @@ const server = app.listen(port, () => {
 });
 
 process.on("uncaughtException", (err) => {
-    console.log(err.name, err.message);
-    console.log("Uncaght Exception. Shutting Down....");
-    server.close(() => {
-      process.exit(1);
-    });
+  console.log(err.name, err.message);
+  console.log("Uncaght Exception. Shutting Down....");
+  server.close(() => {
+    process.exit(1);
   });
+});
