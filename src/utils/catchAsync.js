@@ -14,7 +14,20 @@ const catchAsync = (fn) => {
     }
 }
 
-module.exports = {catchAsync}
+const catchProfile = (fn) => {
+  return (req,res,next) => {
+    fn(req, res, next).catch((err) => {
+      if (err.name === "MongoServerError" && err.code === 11000) {
+        // Duplicate username
+        return res
+          .status(400)
+          .send({ success: false, message: "Invalid Data entered" });
+      };
+    next(err)
+  })        
+  }
+}
+module.exports = {catchAsync, catchProfile}
 
 
 
