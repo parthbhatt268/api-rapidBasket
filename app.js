@@ -7,7 +7,7 @@ const  ErrorHandlerMw = require("./src/Middleware/error-handler.mw")
 
 const app = express()
 
-app.use(cors())
+app.use(cors({ origin: true }))
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(bodyParser.json())
