@@ -18,12 +18,7 @@ exports.addFoodItem = catchAsync(async (req, res, next) => {
           photo: req.body.photo,
           description: req.body.description,
         });
-  
-        // var token = signToken(newUser._id);
-        // // Logging the user into the application using jsonwebtoken right after signing up
-        // token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
-        //   expiresIn: process.env.JWT_EXPIRES_IN,
-        // });
+
   
         createsendToken(newFoodItem, 201, res);
       } else {

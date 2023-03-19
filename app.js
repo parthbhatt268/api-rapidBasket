@@ -3,6 +3,7 @@ const cors =  require("cors")
 var bodyParser = require('body-parser')
 const router = require("./src/Router/index")
 const  ErrorHandlerMw = require("./src/Middleware/error-handler.mw")
+const jwt = require('jsonwebtoken');
 
 
 const app = express()
