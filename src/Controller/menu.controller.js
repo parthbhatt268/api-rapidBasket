@@ -32,7 +32,7 @@ exports.getFoodItemsbyCategory = catchAsync(async (req, res, next) => {
     const { category } = req.query;
   
     const foodItems = await foodMenu.find({ category: category });
-    console.log("gg",foodItems)
+
     // 3) If everything ok, send token to client
     createsendToken(foodItems, 200, res);
     
