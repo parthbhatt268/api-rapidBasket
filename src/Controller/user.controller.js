@@ -3,6 +3,11 @@ const { catchAsync, catchProfile } = require("../utils/catchAsync")
 const { createsendToken, signToken } = require("../Middleware/Authenticate")
 const { BadRequestError, UnauthorisedError } = require("../Error")
 const {v4 : uuidv4} = require('uuid')
+const jwt = require("jsonwebtoken");
+const dotnev = require("dotenv");
+dotnev.config({ path: "../.env" });
+
+
 
 exports.Register = catchAsync(async (req, res, next) => {
   if (
@@ -21,12 +26,8 @@ exports.Register = catchAsync(async (req, res, next) => {
       passwordConfirm: req.body.passwordConfirm,
     });
 
-    var token = signToken(newUser.custId);
     // Logging the user into the application using jsonwebtoken right after signing up
-    token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN,
-    });
-
+   
     createsendToken(newUser, 201, res);
   } else {
     res.status(400).send("Please enter all the details!!");

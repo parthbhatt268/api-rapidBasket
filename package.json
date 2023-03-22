@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
+    "debug": "node --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
