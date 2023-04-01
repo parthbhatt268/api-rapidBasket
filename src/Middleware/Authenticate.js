@@ -1,14 +1,18 @@
-const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
+const jwt = require("jsonwebtoken");
 const User = require("../Model/userModel");
 const BaseError = require('../Error/index');
-const { catchAsync, catchProfile } = require("../utils/catchAsync")
+const { catchAsync } = require("../utils/catchAsync")
+const dotnev = require("dotenv");
+dotnev.config({ path: "../.env" });
 
 
 const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  const result = jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
+  console.log(result)
+  return result
 };
 
 const createsendToken = (user, statusCode, res) => {
