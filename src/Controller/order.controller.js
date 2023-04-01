@@ -21,3 +21,17 @@ exports.postOrder = catchAsync(async (req, res, next) => {
 });
 
 
+
+exports.getOrderHistoryOfCustomer = catchAsync(async (req, res, next) => {
+  console.log(req.query)
+  const { custId } = req.query;
+
+  const orderHistory = await orderDetail.find({ custId: custId });
+
+  // 3) If everything ok, send token to client
+  createsendToken(orderHistory, 200, res);
+  
+});
+
+
+
