@@ -4,6 +4,7 @@ const menuRouter = require("./menuRouter")
 const {authControllerProtected} = require('../Middleware/Authenticate')
 const profileRouter = require("./profileRouter")
 const orderRouter = require("./orderRouter")
+const orderHistoryRouter = require("./orderHistoryRouter")
 const router = express.Router()
 
 const root_path = "/"
@@ -13,6 +14,8 @@ router.use(authControllerProtected) //Yaha rakha hai boz Lgin and Register ko tk
 router.use(root_path,profileRouter)
 router.use(root_path,menuRouter)
 router.use(root_path,orderRouter)
+router.use(root_path,orderHistoryRouter)
+
 
 
 module.exports = router
