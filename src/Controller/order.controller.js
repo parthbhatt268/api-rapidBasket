@@ -11,6 +11,7 @@ exports.postOrder = catchAsync(async (req, res, next) => {
       ) {
         const newOrderForCustId = await orderDetail.create({
           custId: req.body.custId,
+          orderDate: req.body.orderDate,
           orderDetail: req.body.orderDetail,
         });
   
