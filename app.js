@@ -22,7 +22,18 @@ app.use(express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 5000
 app.use(bodyParser.json())
 app.use("/api/v1/rapidBasket",router)
 
+
 app.use(ErrorHandlerMw)
+
+app.get('*', function(req, res){
+    res.status(404).json({
+        status: "Error",
+        data: {
+          Message :"Something went Wrong, Please refresh!!!"
+        }
+      });  
+    
+    });
 
 
 

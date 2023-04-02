@@ -5,13 +5,14 @@ const jwt = require('jsonwebtoken');
 const app = require("./app")
 
 dotnev.config({ path: "./.env" });
-
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const DB = process.env.DATABASE.replace(
   "<password>",
   process.env.DATABASE_PASSWORD
 );
- mongoose
+
+mongoose
   .connect(DB,  { useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log("DB connection successful!"))
   .catch((err) => {
@@ -33,3 +34,6 @@ process.on("uncaughtException", (err) => {
     process.exit(1);
   });
 });
+
+
+module.exports = stripe
