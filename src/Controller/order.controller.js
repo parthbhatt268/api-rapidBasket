@@ -27,12 +27,9 @@ exports.postOrder = catchAsync(async (req, res, next) => {
             quantity: order.p_itemCount,
           }
         })
-        console.log(items)
         const session = await stripe.checkout.sessions.create({ 
           payment_method_types: ["card"], 
-          
-          line_items:items
-          , 
+          line_items:items, 
           allow_promotion_codes: true,
           mode: "payment", 
           success_url: "http://localhost:3000/success", 
