@@ -17,7 +17,10 @@ const OrderSchema = new mongoose.Schema({
   orderDetail: {
     type: Array,
     required: [true, "Please add the Food category"],
-  }
+  },
+  createdAt :  { 
+    type : Date, 
+    timestamps: true }
 })
 
 

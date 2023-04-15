@@ -26,13 +26,7 @@ app.use("/api/v1/rapidBasket",router)
 app.use(ErrorHandlerMw)
 
 app.get('*', function(req, res){
-    res.status(404).json({
-        status: "Error",
-        data: {
-          Message :"Something went Wrong, Please refresh!!!"
-        }
-      });  
-    
+    res.status(404).send("Something went Wrong. Please refresh!!!");
     });
 
 

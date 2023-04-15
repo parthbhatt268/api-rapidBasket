@@ -11,12 +11,10 @@ const signToken = (id) => {
   const result = jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
-  console.log(result)
   return result
 };
 
 const createsendToken = (user, statusCode, res) => {
-  console.log("yaha",user)
   const token = signToken(user._id);
   const cookieOptions = {
     expires: new Date(
@@ -49,7 +47,6 @@ const authControllerProtected = catchAsync(async (req, res, next) => {
     ) {
       token = req.headers.authorization.split(" ")[1];
     }
-    console.log(token);
     if (!token) {
       return next(new BaseError.UnauthorisedError("You are authorized to Log In"));
     }
@@ -57,7 +54,6 @@ const authControllerProtected = catchAsync(async (req, res, next) => {
     // 2) Verification Token
   
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-    console.log(decoded);
     // 3) Check if user still exists
   
     const freshUser = await User.findById(decoded.id);
