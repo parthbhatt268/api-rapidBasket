@@ -50,7 +50,6 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new UnauthorisedError("Incorrect email or password", 401));
   }
 
-  console.log(user);
 
   // 3) If everything ok, send token to client
   createsendToken(user, 200, res);
@@ -61,7 +60,6 @@ exports.getProfile = catchProfile(async (req, res, next) => {
   const { custId } = req.query;
   if (req.query) {
     const userInfo = await User.find({ custId: custId });
-    console.log("user info", userInfo)
     res.status(200).send(userInfo)
   } else {
     res.status(400).send("No user found");

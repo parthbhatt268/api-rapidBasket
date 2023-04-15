@@ -28,7 +28,6 @@ exports.addFoodItem = catchAsync(async (req, res, next) => {
 
 
 exports.getFoodItemsbyCategory = catchAsync(async (req, res, next) => {
-    console.log(req.query)
     const { category } = req.query;
   
     const foodItems = await foodMenu.find({ category: category });
