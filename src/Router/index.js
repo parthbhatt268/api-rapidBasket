@@ -5,6 +5,7 @@ const {authControllerProtected} = require('../Middleware/Authenticate')
 const profileRouter = require("./profileRouter")
 const orderRouter = require("./orderRouter")
 const orderHistoryRouter = require("./orderHistoryRouter")
+const feedbackRouter = require("./feedbackRouter")
 const router = express.Router()
 
 const root_path = "/"
@@ -15,6 +16,7 @@ router.use(root_path,profileRouter)
 router.use(root_path,menuRouter)
 router.use(root_path,orderRouter)
 router.use(root_path,orderHistoryRouter)
+router.use(root_path, feedbackRouter)
 
 
 
