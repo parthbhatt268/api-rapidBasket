@@ -29,7 +29,7 @@ const server = app.listen(port, () => {
 
 process.on("uncaughtException", (err) => {
   console.log(err.name, err.message);
-  console.log("Uncaght Exception. Shutting Down....");
+  console.log("Uncaught Exception. Shutting Down....");
   server.close(() => {
     process.exit(1);
   });

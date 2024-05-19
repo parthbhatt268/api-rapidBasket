@@ -29,6 +29,7 @@
     "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0",
+    "nodemon": "^3.0.2",
     "stripe": "^11.16.0",
     "util": "^0.12.5",
     "uuid": "^9.0.0",

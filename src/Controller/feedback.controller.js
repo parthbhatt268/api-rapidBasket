@@ -20,7 +20,9 @@ exports.feedbackController = catchAsync(async (req, res, next) => {
         data: {
           Message : "Feedback Submitted Successfully.",
         }
-      });      } else {
+      });      
+    } 
+    else {
         res.status(400).send("Please enter all the details!!");
       }
 });
