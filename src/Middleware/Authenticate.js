@@ -48,7 +48,7 @@ const authControllerProtected = catchAsync(async (req, res, next) => {
       token = req.headers.authorization.split(" ")[1];
     }
     if (!token) {
-      return next(new BaseError.UnauthorisedError("You are authorized to Log In"));
+      return next(new BaseError.UnauthorisedError("You are not authorized to Log In"));
     }
   
     // 2) Verification Token
