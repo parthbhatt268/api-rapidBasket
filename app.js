@@ -8,15 +8,15 @@ const jwt = require('jsonwebtoken');
 
 const app = express()
 
-//app.use(cors())
+app.use(cors())
 
-app.use(cors(
-    {
-        origin: ["https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+// app.use(cors(
+//     {
+//         origin: ["https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/"],
+//         methods: ["POST", "GET"],
+//         credentials: true
+//     }
+// ));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
