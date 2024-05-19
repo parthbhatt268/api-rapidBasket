@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/"],
         methods: ["POST", "GET"],
         credentials: true
     }
