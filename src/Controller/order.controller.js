@@ -37,7 +37,7 @@ exports.postOrder = catchAsync(async (req, res, next) => {
           }],
           mode: "payment", 
           success_url: "https://api-rapidbasket.onrender.com/api/v1/success", 
-          cancel_url: "https://api-rapidbasket.onrender.com/api/v1/cancel", 
+          cancel_url: "https://api-rapidbasket.onrender.com/api/v1/error", 
         }); 
         res.json({ id: session.id }); 
       } else {
