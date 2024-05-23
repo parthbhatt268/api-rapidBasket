@@ -36,8 +36,8 @@ exports.postOrder = catchAsync(async (req, res, next) => {
             coupon: coupon.id,
           }],
           mode: "payment", 
-          success_url: "https://api-rapidbasket.onrender.com/api/v1/success", 
-          cancel_url: "https://api-rapidbasket.onrender.com/api/v1/error", 
+          success_url: "https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/success", 
+          cancel_url: "https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/error", 
         }); 
         res.json({ id: session.id }); 
       } else {
