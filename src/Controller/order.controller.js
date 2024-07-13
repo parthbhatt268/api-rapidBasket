@@ -36,8 +36,8 @@ exports.postOrder = catchAsync(async (req, res, next) => {
             coupon: coupon.id,
           }],
           mode: "payment", 
-          success_url: "https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/success", 
-          cancel_url: "https://rapidbasket.d36kd6dzveqmfl.amplifyapp.com/error", 
+          success_url: "https://rapid-basket.netlify.app/Success", 
+          cancel_url: "https://rapid-basket.netlify.app/error", 
         }); 
         res.json({ id: session.id }); 
       } else {
